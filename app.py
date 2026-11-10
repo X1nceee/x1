@@ -219,7 +219,7 @@ def staff_online():
             seen = datetime.fromisoformat(row["last_seen"])
         except (TypeError, ValueError):
             continue
-        if (now - seen).total_seconds() <= 75:
+        if (now - seen).total_seconds() <= 100:
             online.append({"id": row["id"], "name": row["name"],
                            "role_label": ROLES.get(row["role"], row["role"]),
                            "dept": row["dept"], "last_seen": row["last_seen"]})
